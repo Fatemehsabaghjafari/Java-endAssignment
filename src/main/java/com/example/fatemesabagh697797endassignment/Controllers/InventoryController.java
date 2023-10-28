@@ -17,7 +17,6 @@ public class InventoryController implements Initializable {
     @FXML
     private TableView<Product> inventoryTableView;
     private ObservableList<Product> products;
-   // private ArrayList<Product>
     private Database database;
     @FXML
     private TextField productStockField;

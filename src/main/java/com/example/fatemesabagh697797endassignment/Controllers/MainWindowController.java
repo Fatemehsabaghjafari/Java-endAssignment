@@ -91,16 +91,16 @@ public class MainWindowController{
         }
     }
     public void OnDashboardButtonClick(ActionEvent event) {
-        loadScene("Dashboard.fxml", new DashboardController(user));
+        loadScene("/com/example/fatemesabagh697797endassignment/Dashboard.fxml", new DashboardController(user));
     }
     public void OnOrderButtonClick(ActionEvent event) {
-        loadScene("Create-order.fxml", new OrderController(database));
+        loadScene("/com/example/fatemesabagh697797endassignment/Create-order.fxml", new OrderController(database));
     }
     public void OnInventoryButtonClick(ActionEvent event) {
-        loadScene("Inventory.fxml", new InventoryController(database));
+        loadScene("/com/example/fatemesabagh697797endassignment/Inventory.fxml", new InventoryController(database));
     }
     public void OnHistoryButtonClick(ActionEvent event) {
-        loadScene("History.fxml", new HistoryController(database));
+        loadScene("/com/example/fatemesabagh697797endassignment/History.fxml", new HistoryController(database));
     }
 
 

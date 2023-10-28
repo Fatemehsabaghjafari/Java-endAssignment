@@ -30,7 +30,7 @@
                 <Label text="Password:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
                 <PasswordField fx:id="passwordInput" promptText="Password" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
 
-                <Button fx:id="loginButton" text="Login" onAction="#handleLoginButtonAction" styleClass="button-red" GridPane.rowIndex="3" GridPane.columnSpan="2" alignment="CENTER" />
+                <Button fx:id="loginButton" text="Login" onAction="#handleLoginButtonAction" style="-fx-background-color: red; -fx-text-fill: white;" GridPane.rowIndex="3" GridPane.columnSpan="2" alignment="CENTER" />
         </children>
 
 </GridPane>

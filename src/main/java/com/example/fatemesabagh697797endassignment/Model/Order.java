@@ -33,6 +33,10 @@ public class Order implements Serializable {
     }
 
     private void calculateTotalPrice() {
-        totalPrice = products.stream().mapToDouble(Product::getPrice).sum();
+        double total = 0.0;
+        for (Product product : products) {
+            total += product.getPrice() * product.getStock();
+        }
+        this.totalPrice = total;
     }
 }

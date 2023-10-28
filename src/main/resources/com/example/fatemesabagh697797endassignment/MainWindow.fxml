@@ -13,16 +13,15 @@
 >
 <children>
 
-    <VBox spacing="10.0" styleClass="redBackground">
+    <VBox spacing="10.0" style="-fx-background-color: red;">
         <padding>
             <Insets bottom="20.0" left="20.0" right="20.0" top="80.0"/>
         </padding>
 
         <children>
-            <Button fx:id="DashBtn" onAction="#OnDashboardButtonClick" minWidth="150"
-                    text="Dashboard"/>
+            <Button fx:id="DashBtn" onAction="#OnDashboardButtonClick" minWidth="150" text="Dashboard"  />
             <Button fx:id="OrderBtn" onAction="#OnOrderButtonClick" text="Create order" />
-            <Button fx:id="InventoryBtn" onAction="#OnInventoryButtonClick" text="Product inventory" />
+            <Button fx:id="InventoryBtn" onAction="#OnInventoryButtonClick" text="Product inventory"  />
             <Button fx:id="HistoryBtn" onAction="#OnHistoryButtonClick" text="Order history" />
 
         </children>

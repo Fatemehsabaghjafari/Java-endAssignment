@@ -53,7 +53,7 @@ public class OrderController implements Initializable {
     @FXML
     private void handleAddProduct(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("AddProductPopup.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fatemesabagh697797endassignment/AddProductPopup.fxml"));
             Parent root = loader.load();
 
             AddProductPopupController controller = loader.getController();
@@ -78,34 +78,51 @@ public class OrderController implements Initializable {
             String phoneNumber = phoneNumberField.getText();
 
             LocalDateTime dateTime = LocalDateTime.now();
-            Order order = new Order(dateTime, firstName + " " + lastName,new ArrayList<>(selectedProducts));
+            Order order = createOrder(dateTime, firstName, lastName);
 
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Confirm Order");
-            alert.setHeaderText(null);
-            alert.setContentText("Are you sure you want to create this order?");
-
-            Optional<ButtonType> result = alert.showAndWait();
-
-            if (result.isPresent() && result.get() == ButtonType.OK) {
-                database.addOrder(order);
-                productTableView.setItems(FXCollections.observableArrayList());
-                for (Product p : selectedProducts) {
-                    int newStock = p.getStock();
-                  database.updateStock(p, newStock);
-                }
-
-                firstNameField.clear();
-                lastNameField.clear();
-                emailField.clear();
-                phoneNumberField.clear();
-                selectedProducts.clear();
-                productTableView.getItems().clear();
+            if (confirmOrderCreation(order)) {
+                processOrder(order);
             }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+    private Order createOrder(LocalDateTime dateTime, String firstName, String lastName) {
+        return new Order(dateTime, firstName + " " + lastName, new ArrayList<>(selectedProducts));
+    }
+
+    private boolean confirmOrderCreation(Order order) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirm Order");
+        alert.setHeaderText(null);
+        alert.setContentText("Are you sure you want to create this order?");
+        Optional<ButtonType> result = alert.showAndWait();
+
+        return result.isPresent() && result.get() == ButtonType.OK;
+    }
+
+    private void processOrder(Order order) {
+        database.addOrder(order);
+        productTableView.setItems(FXCollections.observableArrayList());
+        for (Product p : selectedProducts) {
+            int newStock = p.getStock();
+            database.updateStock(p, newStock);
+        }
+
+        clearFields();
+    }
+
+    private void clearFields() {
+        firstNameField.clear();
+        lastNameField.clear();
+        emailField.clear();
+        phoneNumberField.clear();
+        selectedProducts.clear();
+        productTableView.getItems().clear();
+    }
+
 
     @FXML
     private void handleDeleteProduct(ActionEvent event) {

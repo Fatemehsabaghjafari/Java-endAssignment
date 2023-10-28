@@ -9,7 +9,7 @@ import java.io.IOException;
 public class FSMusicApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("LoginScreen.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fatemesabagh697797endassignment/LoginScreen.fxml"));
         Scene scene = new Scene(loader.load());
         stage.setTitle("Fateme's music Login");
         stage.setScene(scene);

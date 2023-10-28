@@ -13,6 +13,8 @@ import javafx.stage.Stage;
 
 public class LoginController {
     Database database;
+    User user;
+
     @FXML
     private TextField usernameInput;
 
@@ -30,25 +32,28 @@ public class LoginController {
     private void handleLoginButtonAction(ActionEvent event) {
         String username = usernameInput.getText();
         String password = passwordInput.getText();
-        User user = database.getUserByUsernameAndPassword(username, password);
+        user = database.getUserByUsernameAndPassword(username, password);
         UserRole role = database.getUserRole(username);
         if (user != null) {
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("Mainwindow.fxml"));
-                Parent root = loader.load();
-                MainWindowController mainController = loader.getController();
-                mainController.setUser(user);
-                mainController.setDatabase(database);
-                mainController.welcomeUser(username,role);
-                Stage mainStage = new Stage();
-                mainStage.setTitle("Fateme's Music shop");
-                Scene scene = new Scene(root);
-                scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm()); // Add this line
-                mainStage.setScene(scene);
-                mainStage.show();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            navigateToMainWindow(username, role);
+        }
+    }
+
+    private void navigateToMainWindow(String username, UserRole role) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fatemesabagh697797endassignment/MainWindow.fxml"));
+            Parent root = loader.load();
+            MainWindowController mainController = loader.getController();
+            mainController.setUser(user); // Set user here
+            mainController.setDatabase(database);
+            mainController.welcomeUser(username, role);
+            Stage mainStage = new Stage();
+            mainStage.setTitle("Fateme's Music shop");
+            Scene scene = new Scene(root);
+            mainStage.setScene(scene);
+            mainStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
