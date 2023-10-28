@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<HBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      prefHeight="400.0" prefWidth="600.0">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+
+    <children>
+        <VBox>
+            <Label text="Customer"  />
+
+            <Label text="First name:" />
+            <TextField fx:id="firstNameField"  />
+
+            <Label text="Last name:" />
+            <TextField fx:id="lastNameField" />
+
+            <Label text="email:" />
+            <TextField fx:id="emailField" />
+
+            <Label text="Phone number:" />
+            <TextField fx:id="phoneNumberField" />
+
+            <children>
+                <Label  text="PRODUCTS"/>
+
+                <TableView fx:id="productTableView">
+                    <columns>
+                        <TableColumn text="Quantity" minWidth="50">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="stock"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn text="Name" minWidth="150">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="name"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn text="Catagory" minWidth="100">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="category"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn text="Price" minWidth="50">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="price"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                    </columns>
+                </TableView>
+                <HBox spacing="10.0">
+                    <children>
+                        <Button text="Add product" onAction="#handleAddProduct" />
+                        <Button text="Delete product" onAction="#handleDeleteProduct"/>
+                        <Button text="Create order" onAction="#handleCreateOrder"/>
+                    </children>
+                    <padding>
+                        <Insets top="20.0"/>
+                    </padding>
+                </HBox>
+            </children>
+        </VBox>
+
+    </children>
+
+</HBox>

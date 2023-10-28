@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      prefHeight="400.0" prefWidth="600.0">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+    <children>
+        <VBox>
+            <children>
+                <Label style="-fx-font-size: 28;" text="Order history"/>
+                <TableView fx:id="orderTableView">
+                    <columns>
+                        <TableColumn text="Date/time" minWidth="100">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="dateTime"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn text="Name" minWidth="100">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="customerName"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn text="Total price" minWidth="180">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="totalPrice"/>
+                            </cellValueFactory>
+                        </TableColumn>
+
+                    </columns>
+                </TableView>
+
+            </children>
+        </VBox>
+        <VBox>
+            <children>
+                <Label style="-fx-font-size: 28;" text="Ordered products"/>
+                <TableView fx:id="productPerOrderTableView">
+                    <columns>
+                        <TableColumn text="Quantity" minWidth="150">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="stock"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn text="Name">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="name"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn text="Catagory" minWidth="50">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="category"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn text="Price" minWidth="50">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="price"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                    </columns>
+                </TableView>
+
+            </children>
+        </VBox>
+    </children>
+
+</VBox>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<HBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      prefHeight="400.0" prefWidth="600.0" >
+
+    <VBox>
+        <Label fx:id="usernameLabel" text="Username" style="-fx-font-size: 24px;" /> <!-- Bigger font size -->
+        <Label fx:id="roleLabel" text="Role" style="-fx-font-size: 20px;" />
+        <Label fx:id="dateTimeLabel" text="Date Time" style="-fx-font-size: 20px;" />
+    </VBox>
+
+</HBox>

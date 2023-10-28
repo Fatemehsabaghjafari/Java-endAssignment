@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<HBox xmlns:fx="http://javafx.com/javafx" fx:id="layout" xmlns="http://javafx.com/fxml"
+      fx:controller="com.example.fatemesabagh697797endassignment.Controllers.MainWindowController"
+      prefHeight="500.0" prefWidth="700.0"
+>
+<children>
+
+    <VBox spacing="10.0" styleClass="redBackground">
+        <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="80.0"/>
+        </padding>
+
+        <children>
+            <Button fx:id="DashBtn" onAction="#OnDashboardButtonClick" minWidth="150"
+                    text="Dashboard"/>
+            <Button fx:id="OrderBtn" onAction="#OnOrderButtonClick" text="Create order" />
+            <Button fx:id="InventoryBtn" onAction="#OnInventoryButtonClick" text="Product inventory" />
+            <Button fx:id="HistoryBtn" onAction="#OnHistoryButtonClick" text="Order history" />
+
+        </children>
+    </VBox>
+    <Label fx:id="username" text="Username" style="-fx-font-size: 24px;" /> <!-- Bigger font size -->
+    <Label fx:id="role" text="Role" style="-fx-font-size: 20px;" />
+</children>
+</HBox>
